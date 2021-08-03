@@ -2,9 +2,13 @@
 import { useSelector, useDispatch } from 'react-redux';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import './App.css';
+import { increment, decrement } from './redux/actions';
 
-import { increment, decrement } from './actions';
+import Nav from './components/Nav'
+import Accessories from './components/Accessories'
+import Hats from './components/Hats'
+import Shirts from './components/Shirts'
+
 
 function App() {
     const counter = useSelector(state => state.counter);
@@ -13,13 +17,24 @@ function App() {
 
     return (
         <Router>
-            <div className='container'>
-                <h1>Counter {counter}</h1>
-                <button onClick={() => dispatch(increment(5))}>+</button>
-                <button onClick={() => dispatch(decrement())}>-</button>
+            <div className='container-fluid p-0'>
+                <Nav />
 
-                {isLogged ? <h3>Need to log in to see this info</h3> : '' }
-                
+                <Route
+                    path='/'
+                    exact
+                    render={(props) => (
+                        <>
+                            <h1>Counter {counter}</h1>
+                            <button onClick={() => dispatch(increment(5))}>+</button>
+                            <button onClick={() => dispatch(decrement())}>-</button>
+
+                            {isLogged ? <h3>Need to log in to see this info</h3> : ''}
+                        </>
+                    )} />
+                <Route path='/shirts' component={Shirts} />
+                <Route path='/hats' component={Hats} />
+                <Route path='/accessories' component={Accessories} />
             </div>
         </Router>
     );

@@ -11,3 +11,38 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.nav-link {
+    color: black !important;
+}
+
+/*.nav-item a:visited {
+    background-color: black;
+    color: white;
+}
+*/
+.nav-link:hover {
+    background-color: black;
+    color: white !important;
+}
+
+.nav-item a:active {
+    background-color: black;
+    color: white !important;
+}
+
+.nav-item {
+    border: 1px solid black;
+    border-bottom: none;
+    border-right: none;
+}
+
+.nav {
+    background-color: white;
+    border-bottom: 1px solid black;
+    position: inherit;
+}
+
+.fixed-top {
+    position: fixed !important;
+}
