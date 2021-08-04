@@ -46,3 +46,35 @@ code {
 .fixed-top {
     position: fixed !important;
 }
+
+/* GRID Component */
+.box {
+    text-align: center;
+    box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+    margin: 2rem;
+    padding-bottom: 1rem;
+    background-color: lightgray !important;
+    width: 300px;
+    height: 300px;
+}
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    
+}
+.grid .box-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+@media (min-width:  728px) { .grid .box-wrapper { width: 50%;     } }
+@media (min-width: 1092px) { .grid .box-wrapper { width: 33.333%; } }
+@media (min-width: 1456px) { .grid .box-wrapper { width: 25%;     } }
+@media (min-width: 1820px) { .grid .box-wrapper { width: 20%;     } }

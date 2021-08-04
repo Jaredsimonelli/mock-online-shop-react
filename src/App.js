@@ -8,6 +8,9 @@ import Nav from './components/Nav'
 import Accessories from './components/Accessories'
 import Hats from './components/Hats'
 import Shirts from './components/Shirts'
+import Grid from './components/Grid'
+
+import { shirtList } from './constants/consts'
 
 
 function App() {
@@ -25,11 +28,12 @@ function App() {
                     exact
                     render={(props) => (
                         <>
-                            <h1>Counter {counter}</h1>
-                            <button onClick={() => dispatch(increment(5))}>+</button>
-                            <button onClick={() => dispatch(decrement())}>-</button>
+                            <Grid items={shirtList} />
+                            {/* <h1>Counter {counter}</h1> */}
+                            {/* <button onClick={() => dispatch(increment(5))}>+</button> */}
+                            {/* <button onClick={() => dispatch(decrement())}>-</button> */}
 
-                            {isLogged ? <h3>Need to log in to see this info</h3> : ''}
+                            {/* {isLogged ? <h3>Need to log in to see this info</h3> : ''} */}
                         </>
                     )} />
                 <Route path='/shirts' component={Shirts} />
