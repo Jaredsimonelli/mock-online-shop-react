@@ -1,7 +1,16 @@
-const Accessories = () => {
-    return (
-        <div> THESE ARE THE OTHER STUFF </div>
-    )
-}
+import Grid from "./Grid";
 
-export default Accessories
+const Accessories = ({ items }) => {
+  return (
+    <div>
+      <h1 className="text-center mt-3">Accessories</h1>
+      <Grid items={items} />
+    </div>
+  );
+};
+
+Accessories.defaultProps = {
+  items: [],
+};
+
+export default Accessories;
