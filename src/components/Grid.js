@@ -6,6 +6,7 @@ import watchIcon from "../icons/watch.png";
 import indianaJonesHateIcon from "../icons/indiana-jones.png";
 import longPantsIcon from "../icons/pants-long.png";
 import shortPantsIcon from "../icons/pants-short.png";
+import joggersIcon from "../icons/joggers.png";
 
 const Grid = ({ items }) => {
   const getIcon = (itemIcon) => {
@@ -35,6 +36,9 @@ const Grid = ({ items }) => {
       case "pants-short":
         icon = shortPantsIcon;
         break;
+      case "joggers":
+        icon = joggersIcon;
+        break;
       case "indianajones":
         icon = indianaJonesHateIcon;
         break;
@@ -57,8 +61,11 @@ const Grid = ({ items }) => {
               <h3>{item.name}</h3>
               <img
                 className={`icon ${item.color}`}
+                style={{ marginTop: item.margin }}
                 src={getIcon(item.icon)}
                 alt={item.name}
+                width={item.imgWidth || "256px"}
+                height={item.imgHeight || "256px"}
               ></img>
             </div>
           </div>

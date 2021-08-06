@@ -79,10 +79,6 @@ a {
   width: 100%;
 }
 
-.icon {
-  width: 256px;
-  height: 256px;
-}
 @media (min-width: 728px) {
   .grid .box-wrapper {
     width: 50%;
