@@ -10,8 +10,6 @@ import joggersIcon from "../icons/joggers.png";
 
 const Grid = ({ items }) => {
   const getIcon = (itemIcon) => {
-    console.log(itemIcon);
-
     let icon;
 
     switch (itemIcon) {
@@ -52,13 +50,19 @@ const Grid = ({ items }) => {
     <div className="container">
       <div className="grid">
         {items.map((item) => (
-          <div
-            className="box-wrapper"
-            style={{ color: item.color }}
-            key={`${item.name} + ${item.color}`}
-          >
+          <div className="box-wrapper" key={`${item.name} + ${item.color}`}>
             <div className="box">
-              <h3>{item.name}</h3>
+              {item.msg && (
+                <div
+                  className="topcorner"
+                  style={{
+                    backgroundColor:
+                      item.msg === "NEW" ? "darkgoldenrod" : "darkgreen",
+                  }}
+                >
+                  {item.msg}
+                </div>
+              )}
               <img
                 className={`icon ${item.color}`}
                 style={{ marginTop: item.margin }}
@@ -67,6 +71,10 @@ const Grid = ({ items }) => {
                 width={item.imgWidth || "256px"}
                 height={item.imgHeight || "256px"}
               ></img>
+            </div>
+
+            <div className="label">
+              {item.name}: {item.price}
             </div>
           </div>
         ))}
