@@ -1,5 +1,6 @@
 export const shirtList = [
   {
+    id: "1000",
     name: "Plain Shirt",
     type: "shirts",
     color: "white",
@@ -12,6 +13,7 @@ export const shirtList = [
     msg: "SALE",
   },
   {
+    id: "1001",
     name: "Plain Shirt",
     type: "shirts",
     color: "black",
@@ -24,6 +26,7 @@ export const shirtList = [
     msg: "NEW",
   },
   {
+    id: "1002",
     name: "Plain Shirt",
     type: "shirts",
     color: "red",
@@ -36,6 +39,7 @@ export const shirtList = [
     msg: "",
   },
   {
+    id: "1003",
     name: "Plain Shirt",
     type: "shirts",
     color: "blue",
@@ -51,6 +55,7 @@ export const shirtList = [
 
 export const pantsList = [
   {
+    id: "2100",
     name: "Joggers",
     type: "pants",
     color: "black",
@@ -63,6 +68,7 @@ export const pantsList = [
     msg: "NEW",
   },
   {
+    id: "2000",
     name: "Long Pants",
     type: "pants",
     color: "khaki",
@@ -75,6 +81,7 @@ export const pantsList = [
     msg: "",
   },
   {
+    id: "2001",
     name: "Long Pants",
     type: "pants",
     color: "blue",
@@ -87,6 +94,7 @@ export const pantsList = [
     msg: "",
   },
   {
+    id: "2200",
     name: "Shorts",
     type: "pants",
     color: "black",
@@ -99,6 +107,7 @@ export const pantsList = [
     msg: "",
   },
   {
+    id: "2201",
     name: "Shorts",
     type: "pants",
     color: "blue",
@@ -114,8 +123,9 @@ export const pantsList = [
 
 export const accessoriesList = [
   {
+    id: "3000",
     name: "Adventurer Hat",
-    type: "accessory",
+    type: "accessories",
     color: "black",
     icon: "indianajones",
     imgWidth: "220px",
@@ -124,8 +134,9 @@ export const accessoriesList = [
     msg: "NEW",
   },
   {
+    id: "3001",
     name: "Belt",
-    type: "accessory",
+    type: "accessories",
     color: "black",
     icon: "belt",
     margin: "30px",
@@ -136,8 +147,9 @@ export const accessoriesList = [
     msg: "",
   },
   {
+    id: "3002",
     name: "Socks",
-    type: "accessory",
+    type: "accessories",
     color: "black",
     icon: "socks",
     margin: "50px",
@@ -148,8 +160,9 @@ export const accessoriesList = [
     msg: "SALE",
   },
   {
+    id: "3003",
     name: "Watch",
-    type: "accessory",
+    type: "accessories",
     color: "black",
     icon: "watch",
     margin: "70px",

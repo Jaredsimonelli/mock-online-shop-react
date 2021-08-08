@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import tshirtIcon from "../icons/tshirt.png";
 import dressShirtIcon from "../icons/dress-shirt.png";
 import beltIcon from "../icons/belt.png";
@@ -63,14 +65,16 @@ const Grid = ({ items }) => {
                   {item.msg}
                 </div>
               )}
-              <img
-                className={`icon ${item.color}`}
-                style={{ marginTop: item.margin }}
-                src={getIcon(item.icon)}
-                alt={item.name}
-                width={item.imgWidth || "256px"}
-                height={item.imgHeight || "256px"}
-              ></img>
+              <Link to={`/${item.type}/${item.id}`}>
+                <img
+                  className={`icon ${item.color}`}
+                  style={{ marginTop: item.margin }}
+                  src={getIcon(item.icon)}
+                  alt={item.name}
+                  width={item.imgWidth || "256px"}
+                  height={item.imgHeight || "256px"}
+                ></img>
+              </Link>
             </div>
 
             <div className="label">

@@ -22,7 +22,9 @@ const Nav = () => {
         <li className="nav-item">
           <Link
             to="/shirts"
-            className={`nav-link ${activeTab === "shirts" ? "active" : ""}`}
+            className={`nav-link ${
+              activeTab.includes("shirts") ? "active" : ""
+            }`}
             id="shirts"
           >
             Shirts
@@ -32,7 +34,9 @@ const Nav = () => {
         <li className="nav-item">
           <Link
             to="/pants"
-            className={`nav-link ${activeTab === "pants" ? "active" : ""}`}
+            className={`nav-link ${
+              activeTab.includes("pants") ? "active" : ""
+            }`}
             id="pants"
           >
             Pants
@@ -43,7 +47,7 @@ const Nav = () => {
           <Link
             to="/accessories"
             className={`nav-link ${
-              activeTab === "accessories" ? "active" : ""
+              activeTab.includes("accessories") ? "active" : ""
             }`}
             id="accessories"
           >

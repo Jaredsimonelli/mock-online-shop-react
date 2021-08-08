@@ -9,6 +9,7 @@ import Accessories from "./components/Accessories";
 import Pants from "./components/Pants";
 import Shirts from "./components/Shirts";
 import Grid from "./components/Grid";
+import Item from "./components/Item";
 
 import { shirtList, accessoriesList, pantsList } from "./constants/consts";
 
@@ -25,7 +26,6 @@ function App() {
     <Router>
       <div className="container-fluid p-0">
         <Nav />
-
         <Route
           path="/"
           exact
@@ -41,6 +41,7 @@ function App() {
           )}
         />
         <Route
+          exact
           path="/shirts"
           render={(props) => (
             <>
@@ -49,6 +50,7 @@ function App() {
           )}
         />
         <Route
+          exact
           path="/pants"
           render={(props) => (
             <>
@@ -57,10 +59,19 @@ function App() {
           )}
         />
         <Route
+          exact
           path="/accessories"
           render={(props) => (
             <>
               <Accessories items={accessoriesList} />
+            </>
+          )}
+        />
+        <Route
+          path="/:item/:id"
+          render={(props) => (
+            <>
+              <Item />
             </>
           )}
         />
