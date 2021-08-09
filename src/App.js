@@ -5,9 +5,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 // import { increment, decrement } from "./redux/actions";
 
 import Nav from "./components/Nav";
-import Accessories from "./components/Accessories";
-import Pants from "./components/Pants";
-import Shirts from "./components/Shirts";
+import Home from "./components/Home";
 import Grid from "./components/Grid";
 import Item from "./components/Item";
 
@@ -31,7 +29,7 @@ function App() {
           exact
           render={(props) => (
             <>
-              <Grid items={newItemsList} />
+              <Home />
               {/* <h1>Counter {counter}</h1> */}
               {/* <button onClick={() => dispatch(increment(5))}>+</button> */}
               {/* <button onClick={() => dispatch(decrement())}>-</button> */}
@@ -42,10 +40,19 @@ function App() {
         />
         <Route
           exact
+          path="/new"
+          render={(props) => (
+            <>
+              <Grid title="New Items!" items={newItemsList} />
+            </>
+          )}
+        />
+        <Route
+          exact
           path="/shirts"
           render={(props) => (
             <>
-              <Shirts items={shirtList} />
+              <Grid title="Shirts" items={shirtList} />
             </>
           )}
         />
@@ -54,7 +61,7 @@ function App() {
           path="/pants"
           render={(props) => (
             <>
-              <Pants items={pantsList} />
+              <Grid title="Pants" items={pantsList} />
             </>
           )}
         />
@@ -63,7 +70,7 @@ function App() {
           path="/accessories"
           render={(props) => (
             <>
-              <Accessories items={accessoriesList} />
+              <Grid title="Accessories" items={accessoriesList} />
             </>
           )}
         />

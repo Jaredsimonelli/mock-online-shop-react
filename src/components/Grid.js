@@ -10,7 +10,7 @@ import longPantsIcon from "../icons/pants-long.png";
 import shortPantsIcon from "../icons/pants-short.png";
 import joggersIcon from "../icons/joggers.png";
 
-const Grid = ({ items }) => {
+const Grid = ({ items, title }) => {
   const getIcon = (itemIcon) => {
     let icon;
 
@@ -50,6 +50,8 @@ const Grid = ({ items }) => {
 
   return (
     <div className="container">
+      <h1 className="text-center mt-3">{title}</h1>
+
       <div className="grid">
         {items.map((item) => (
           <div className="box-wrapper" key={`${item.name} + ${item.color}`}>
@@ -58,8 +60,7 @@ const Grid = ({ items }) => {
                 <div
                   className="topcorner"
                   style={{
-                    backgroundColor:
-                      item.msg === "NEW" ? "darkgoldenrod" : "darkgreen",
+                    backgroundColor: item.msg === "NEW" ? "#ffc0be" : "#83d082",
                   }}
                 >
                   {item.msg}
