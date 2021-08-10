@@ -60,7 +60,7 @@ const Grid = ({ items, title }) => {
                 <div
                   className="topcorner"
                   style={{
-                    backgroundColor: item.msg === "NEW" ? "#ffc0be" : "#83d082",
+                    color: item.msg === "NEW" ? "#ffc0be" : "#83d082",
                   }}
                 >
                   {item.msg}

@@ -1,24 +1,30 @@
-// import { useState, useEffect } from 'react';
-// import { useSelector, useDispatch } from "react-redux";
-
 import { BrowserRouter as Router, Route } from "react-router-dom";
-// import { increment, decrement } from "./redux/actions";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 import Nav from "./components/Nav";
 import Home from "./components/Home";
 import Grid from "./components/Grid";
 import Item from "./components/Item";
 
-import { shirtList, accessoriesList, pantsList } from "./constants/consts";
+import {
+  getAllItems,
+  getShirts,
+  getPants,
+  getAccessories,
+} from "./redux/actions";
 
 function App() {
-  const newItemsList = shirtList
-    .concat(accessoriesList, pantsList)
-    .filter((item) => item.msg === "NEW");
+  const store = useSelector((state) => state.store);
+  // const isLogged = useSelector((state) => state.isLogged);
+  const dispatch = useDispatch();
 
-  //   const counter = useSelector((state) => state.counter);
-  //   const isLogged = useSelector((state) => state.isLogged);
-  //   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllItems());
+    dispatch(getShirts());
+    dispatch(getPants());
+    dispatch(getAccessories());
+  }, []);
 
   return (
     <Router>
@@ -43,7 +49,10 @@ function App() {
           path="/new"
           render={(props) => (
             <>
-              <Grid title="New Items!" items={newItemsList} />
+              <Grid
+                title="New Items!"
+                items={store.allItems.filter((item) => item.msg === "NEW")}
+              />
             </>
           )}
         />
@@ -52,7 +61,7 @@ function App() {
           path="/shirts"
           render={(props) => (
             <>
-              <Grid title="Shirts" items={shirtList} />
+              <Grid title="Shirts" items={store.shirts} />
             </>
           )}
         />
@@ -61,7 +70,7 @@ function App() {
           path="/pants"
           render={(props) => (
             <>
-              <Grid title="Pants" items={pantsList} />
+              <Grid title="Pants" items={store.pants} />
             </>
           )}
         />
@@ -70,12 +79,12 @@ function App() {
           path="/accessories"
           render={(props) => (
             <>
-              <Grid title="Accessories" items={accessoriesList} />
+              <Grid title="Accessories" items={store.accessories} />
             </>
           )}
         />
         <Route
-          path="/:item/:id"
+          path="/:itemType/:id"
           render={(props) => (
             <>
               <Item />
