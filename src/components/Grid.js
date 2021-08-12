@@ -67,10 +67,18 @@ const Grid = ({ items, title }) => {
                 </div>
               )}
               <Link to={`/${item.type}/${item.id}`}>
-                <img
+                {/* <img
                   className={`icon ${item.color}`}
                   style={{ marginTop: item.margin }}
                   src={getIcon(item.icon)}
+                  alt={item.name}
+                  width={item.imgWidth || "256px"}
+                  height={item.imgHeight || "256px"}
+                ></img> */}
+                <img
+                  className={`icon ${item.color}`}
+                  style={{ marginTop: item.margin }}
+                  href={item.imgSrc}
                   alt={item.name}
                   width={item.imgWidth || "256px"}
                   height={item.imgHeight || "256px"}
