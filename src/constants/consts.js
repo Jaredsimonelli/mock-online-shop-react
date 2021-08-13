@@ -11,7 +11,6 @@ export const shirtList = [
     sizes: ["xs", "sm", "md", "lg", "xl"],
     price: "$15.00",
     msg: "NEW",
-    imgSrc: "../icons/tshirt.png",
   },
   {
     id: "1001",
