@@ -120,6 +120,19 @@ a {
 }
 
 /* ITEM Component */
+#sku {
+  font-size: small;
+}
+
+#price {
+  font-size: large;
+}
+
+.flex-center-content {
+  display: flex;
+  justify-content: center;
+}
+
 .item-display {
   text-align: center;
   box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
@@ -129,7 +142,23 @@ a {
   width: 400px;
   height: 400px;
   position: relative;
-  margin: 0 auto;
+}
+
+.item-display img {
+  margin: auto;
+}
+
+.add-to-cart-btn {
+  display: block !important;
+}
+
+.add-to-cart-btn:hover {
+  background-color: black !important;
+  color: #7f95d1 !important;
+}
+
+.add-to-cart-btn:active {
+  color: white !important;
 }
 
 @media (min-width: 728px) {

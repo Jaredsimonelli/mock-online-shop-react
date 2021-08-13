@@ -12,21 +12,58 @@ function Item() {
     (item) => item.id === id && item.type === itemType
   );
 
-  return (
-    <div>
-      <h3 className="text-center mt-3">{item.name}</h3>
-      <p>SKU: {item.id}</p>
+  const capitalize = (s) => {
+    if (typeof s !== "string") return "";
+    return s.charAt(0).toUpperCase() + s.slice(1);
+  };
 
-      <div className="item-display">
-        {/* TODO: add img sizing for item page and grid page */}
-        <img
-          className={`${item.color}`}
-          style={{ marginTop: item.margin }}
-          src={getIcon(item.icon)}
-          alt={item.name}
-          width={item.imgWidth || "225px"}
-          height={item.imgHeight || "300px"}
-        ></img>
+  return (
+    <div className="container mt-5 flex-center-content">
+      <div className="row">
+        <div className="col">
+          <div className="item-display flex-center-content">
+            {item.msg && (
+              <div
+                className="topcorner"
+                style={{
+                  color: item.msg === "NEW" ? "#ffc0be" : "#83d082",
+                }}
+              >
+                {item.msg}
+              </div>
+            )}
+            <img
+              className={`${item.color}`}
+              src={getIcon(item.icon)}
+              alt={item.name}
+              width={item.displaySize[1] || "60%"}
+              height={item.displaySize[0] || "60%"}
+            ></img>
+          </div>
+        </div>
+
+        <div className="col">
+          <h3 className="mt-5">
+            <u>
+              {item.type !== "accessories" && capitalize(item.color)}{" "}
+              {item.name}
+            </u>
+          </h3>
+          <p id="sku">SKU: {item.id}</p>
+          <p id="price">{item.price}</p>
+
+          <div className="mt-5">
+            <label>
+              <p>Quantity:</p>
+              <input type="number" name="quantity" />
+            </label>
+            <input
+              className="mt-3 add-to-cart-btn btn btn-dark"
+              type="submit"
+              value="Add to Cart"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );

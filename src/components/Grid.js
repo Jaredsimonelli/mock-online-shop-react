@@ -26,8 +26,8 @@ const Grid = ({ items, title }) => {
                   style={{ marginTop: item.margin }}
                   src={getIcon(item.icon)}
                   alt={item.name}
-                  width={item.imgWidth || "256px"}
-                  height={item.imgHeight || "256px"}
+                  width={item.gridSize[1] || "256px"}
+                  height={item.gridSize[0] || "256px"}
                 ></img>
               </Link>
             </div>
