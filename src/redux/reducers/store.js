@@ -6,6 +6,7 @@ const initialState = {
   shirts: shirtList,
   pants: pantsList,
   accessories: accessoriesList,
+  cart: [],
 };
 
 const storeReducer = (state = initialState, action) => {
@@ -14,6 +15,14 @@ const storeReducer = (state = initialState, action) => {
       return {
         ...state,
         selectedItem: action.payload,
+      };
+    case "ADD TO CART":
+      return {
+        ...state,
+        cart: [
+          ...state.cart,
+          { item: action.payload.item, quantity: action.payload.quantity },
+        ],
       };
     case "GET ALL ITEMS":
       return {

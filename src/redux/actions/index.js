@@ -5,6 +5,13 @@ export const setSelectedItem = (item) => {
   };
 };
 
+export const addToCart = (item, quantity) => {
+  return {
+    type: "ADD TO CART",
+    payload: { item, quantity },
+  };
+};
+
 export const getAllItems = () => {
   return {
     type: "GET ALL ITEMS",
