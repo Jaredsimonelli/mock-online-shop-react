@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 
-import { addToCart } from "../redux/actions";
+import { addToCart, duplicate } from "../redux/actions";
 import { getIcon } from "../helpers/getIcon";
 
 function Item() {
@@ -19,6 +19,14 @@ function Item() {
   const capitalize = (s) => {
     if (typeof s !== "string") return "";
     return s.charAt(0).toUpperCase() + s.slice(1);
+  };
+
+  const addToCartDispatch = (i, q) => {
+    if (!store.cart.find((c) => c.item.id === i.id)) {
+      dispatch(addToCart({ item: i, quantity: q }));
+    } else {
+      dispatch(duplicate());
+    }
   };
 
   return (
@@ -65,9 +73,20 @@ function Item() {
               className="mt-3 add-to-cart-btn btn btn-dark"
               type="submit"
               value="Add to Cart"
-              onClick={() => dispatch(addToCart({ item, quantity: 1 }))}
+              onClick={() => addToCartDispatch(item, 1)}
             />
           </div>
+          {store.addToCartMsg && (
+            <div
+              className={`mt-3 ${
+                store.addToCartMsg === "ITEM ADDED!"
+                  ? "success-msg"
+                  : "warn-msg"
+              }`}
+            >
+              {store.addToCartMsg}
+            </div>
+          )}
         </div>
       </div>
     </div>

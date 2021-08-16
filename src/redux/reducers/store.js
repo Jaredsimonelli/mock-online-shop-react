@@ -7,6 +7,8 @@ const initialState = {
   pants: pantsList,
   accessories: accessoriesList,
   cart: [],
+  addToCartMsg: "",
+  cartQuantity: 0,
 };
 
 const storeReducer = (state = initialState, action) => {
@@ -27,7 +29,19 @@ const storeReducer = (state = initialState, action) => {
     case "ADD TO CART":
       return {
         ...state,
-        cart: [...state.cart, action.payload],
+        cart: [...state.cart, action.payload.item],
+        addToCartMsg: "ITEM ADDED!",
+        cartQuantity: state.cartQuantity + action.payload.item.quantity,
+      };
+    case "DUPLICATE":
+      return {
+        ...state,
+        addToCartMsg: "ITEM HAS ALREADY BEEN ADDED!",
+      };
+    case "RESET DUPLICATE":
+      return {
+        ...state,
+        addToCartMsg: "",
       };
     case "UPDATE CART":
       return {

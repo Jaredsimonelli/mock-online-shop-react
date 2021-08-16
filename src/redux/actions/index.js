@@ -12,6 +12,18 @@ export const addToCart = (item, quantity) => {
   };
 };
 
+export const duplicate = () => {
+  return {
+    type: "DUPLICATE",
+  };
+};
+
+export const resetDuplicate = () => {
+  return {
+    type: "RESET DUPLICATE",
+  };
+};
+
 export const updateCart = (item, quantity) => {
   return {
     type: "UPDATE CART",

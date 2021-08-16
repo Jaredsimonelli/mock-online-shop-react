@@ -1,7 +1,18 @@
 import { Link } from "react-router-dom";
 import { getIcon } from "../helpers/getIcon";
 
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+
+import { resetDuplicate } from "../redux/actions";
+
 const Grid = ({ items, title }) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(resetDuplicate());
+  }, []);
+
   return (
     <div className="container">
       <h1 className="text-center mt-3">{title}</h1>

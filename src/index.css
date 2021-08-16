@@ -37,6 +37,19 @@ a {
   color: black !important;
 }
 
+.numberCircle {
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  padding: 2px;
+  margin-left: 3px;
+  background: orange;
+  border: 1px solid orange;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 800;
+}
+
 /*.nav-item a:visited {
     background-color: black;
     color: white;
@@ -178,6 +191,13 @@ a {
 }
 
 /* COLOR */
+.success-msg {
+  color: green;
+}
+
+.warn-msg {
+  color: goldenrod;
+}
 
 .red {
   filter: invert(10%) sepia(91%) saturate(7500%) hue-rotate(2deg)

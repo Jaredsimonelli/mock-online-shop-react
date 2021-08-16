@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Nav = () => {
+  const store = useSelector((state) => state.store);
   const location = useLocation();
   const activeTab =
     location.pathname === "/" ? "home" : location.pathname.substring(1);
@@ -9,11 +11,6 @@ const Nav = () => {
   return (
     <>
       <div className="right-nav">
-        {/* <div className="nav-item">
-          <Link to="/" className="home-tab" id="home">
-            Home
-          </Link>
-        </div> */}
         <Link to="/" className="home-tab" id="home">
           MOCK SHOP
         </Link>
@@ -64,6 +61,20 @@ const Nav = () => {
               id="accessories"
             >
               Accessories
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
+              to="/cart"
+              className={`nav-link ${
+                activeTab.includes("cart") ? "active" : ""
+              }`}
+              id="cart"
+            >
+              Cart
+              {store.cartQuantity > 0 && (
+                <span className="cart-quantity">{store.cartQuantity}</span>
+              )}
             </Link>
           </li>
         </ul>
