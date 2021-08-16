@@ -1,10 +1,14 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
+
+import { addToCart } from "../redux/actions";
 import { getIcon } from "../helpers/getIcon";
 
 function Item() {
   const store = useSelector((state) => state.store);
+  const dispatch = useDispatch();
+
   const { id } = useParams();
   const { itemType } = useParams();
 
@@ -61,6 +65,7 @@ function Item() {
               className="mt-3 add-to-cart-btn btn btn-dark"
               type="submit"
               value="Add to Cart"
+              onClick={() => dispatch(addToCart({ item, quantity: 1 }))}
             />
           </div>
         </div>

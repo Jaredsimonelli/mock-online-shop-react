@@ -12,6 +12,20 @@ export const addToCart = (item, quantity) => {
   };
 };
 
+export const updateCart = (item, quantity) => {
+  return {
+    type: "UPDATE CART",
+    payload: { item, quantity },
+  };
+};
+
+export const removeFromCart = (item) => {
+  return {
+    type: "REMOVE FROM CART",
+    payload: item,
+  };
+};
+
 export const getAllItems = () => {
   return {
     type: "GET ALL ITEMS",
