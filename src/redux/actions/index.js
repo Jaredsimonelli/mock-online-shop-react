@@ -12,15 +12,16 @@ export const addToCart = (item, quantity) => {
   };
 };
 
-export const duplicate = () => {
+export const cartMsgUpdate = (type, msg) => {
   return {
-    type: "DUPLICATE",
+    type: "CART MESSAGE UPDATE",
+    payload: { type, msg },
   };
 };
 
-export const resetDuplicate = () => {
+export const resetMsg = () => {
   return {
-    type: "RESET DUPLICATE",
+    type: "RESET MESSAGE",
   };
 };
 

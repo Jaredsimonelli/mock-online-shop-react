@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 
-import { addToCart, duplicate } from "../redux/actions";
+import { addToCart, cartMsgUpdate } from "../redux/actions";
 import { getIcon } from "../helpers/getIcon";
 
 function Item() {
@@ -21,11 +21,22 @@ function Item() {
     return s.charAt(0).toUpperCase() + s.slice(1);
   };
 
-  const addToCartDispatch = (i, q) => {
-    if (!store.cart.find((c) => c.item.id === i.id)) {
-      dispatch(addToCart({ item: i, quantity: q }));
+  const addToCartDispatch = (i) => {
+    const qauntity = document.getElementById("quantity").value;
+    const isDuplicate = store.cart.find((c) => c.item.id === i.id);
+
+    if (!isDuplicate && qauntity >= 1) {
+      console.log(qauntity);
+      dispatch(addToCart(i, qauntity));
     } else {
-      dispatch(duplicate());
+      const msg = isDuplicate
+        ? "ITEM HAS ALREADY BEEN ADDED!"
+        : !qauntity
+        ? "ENTER A VALID QUANTITY"
+        : "";
+
+      const type = isDuplicate ? "warn" : !qauntity ? "error" : "";
+      dispatch(cartMsgUpdate(type, msg));
     }
   };
 
@@ -67,24 +78,26 @@ function Item() {
           <div className="mt-5">
             <label>
               <p>Quantity:</p>
-              <input type="number" name="quantity" />
+              <input type="number" id="quantity" name="quantity" />
             </label>
             <input
               className="mt-3 add-to-cart-btn btn btn-dark"
               type="submit"
               value="Add to Cart"
-              onClick={() => addToCartDispatch(item, 1)}
+              onClick={() => addToCartDispatch(item)}
             />
           </div>
           {store.addToCartMsg && (
             <div
               className={`mt-3 ${
-                store.addToCartMsg === "ITEM ADDED!"
+                store.addToCartMsg.type === "success"
                   ? "success-msg"
+                  : store.addToCartMsg.type === "error"
+                  ? "error-msg"
                   : "warn-msg"
               }`}
             >
-              {store.addToCartMsg}
+              {store.addToCartMsg.msg}
             </div>
           )}
         </div>

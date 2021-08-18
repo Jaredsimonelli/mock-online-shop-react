@@ -16,7 +16,6 @@ import {
 
 function App() {
   const store = useSelector((state) => state.store);
-  // const isLogged = useSelector((state) => state.isLogged);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -36,11 +35,6 @@ function App() {
           render={(props) => (
             <>
               <Home />
-              {/* <h1>Counter {counter}</h1> */}
-              {/* <button onClick={() => dispatch(increment(5))}>+</button> */}
-              {/* <button onClick={() => dispatch(decrement())}>-</button> */}
-
-              {/* {isLogged ? <h3>Need to log in to see this info</h3> : ''} */}
             </>
           )}
         />

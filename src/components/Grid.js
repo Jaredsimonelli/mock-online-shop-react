@@ -4,13 +4,13 @@ import { getIcon } from "../helpers/getIcon";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-import { resetDuplicate } from "../redux/actions";
+import { resetMsg } from "../redux/actions";
 
 const Grid = ({ items, title }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(resetDuplicate());
+    dispatch(resetMsg());
   }, []);
 
   return (
