@@ -24,7 +24,7 @@ const storeReducer = (state = initialState, action) => {
         cart: [...state.cart, action.payload],
         addToCartMsg: { type: "success", msg: "ITEM ADDED!" },
         cartQuantity: parseInt(
-          state.cartQuantity + action.payload.quantity,
+          parseInt(state.cartQuantity) + parseInt(action.payload.quantity),
           10
         ),
       };

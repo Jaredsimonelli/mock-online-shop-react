@@ -26,7 +26,6 @@ function Item() {
     const isDuplicate = store.cart.find((c) => c.item.id === i.id);
 
     if (!isDuplicate && qauntity >= 1) {
-      console.log(qauntity);
       dispatch(addToCart(i, qauntity));
     } else {
       const msg = isDuplicate
