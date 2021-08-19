@@ -6,6 +6,7 @@ import Nav from "./components/Nav";
 import Home from "./components/Home";
 import Grid from "./components/Grid";
 import Item from "./components/Item";
+import Cart from "./components/Cart";
 
 import {
   getAllItems,
@@ -82,6 +83,15 @@ function App() {
           render={(props) => (
             <>
               <Item />
+            </>
+          )}
+        />
+        <Route
+          exact
+          path="/cart"
+          render={(props) => (
+            <>
+              <Cart />
             </>
           )}
         />
