@@ -6,9 +6,26 @@ const initialState = {
   shirts: shirtList,
   pants: pantsList,
   accessories: accessoriesList,
-  cart: [],
+  cart: [
+    {
+      item: {
+        id: "3001",
+        name: "Socks",
+        type: "accessories",
+        color: "black",
+        icon: "socks",
+        margin: "50px",
+        gridSize: ["190px", "190px"],
+        displaySize: ["", ""],
+        sizes: [],
+        price: "$2.00",
+        msg: "SALE",
+      },
+      quantity: 1,
+    },
+  ],
   addToCartMsg: { type: "warn", msg: "" },
-  cartQuantity: 0,
+  cartQuantity: 1,
 };
 
 const storeReducer = (state = initialState, action) => {
