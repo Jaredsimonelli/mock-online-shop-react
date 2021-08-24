@@ -21,7 +21,7 @@ const initialState = {
         price: "$2.00",
         msg: "SALE",
       },
-      quantity: 1,
+      quantity: 2,
     },
   ],
   addToCartMsg: { type: "warn", msg: "" },

@@ -16,13 +16,29 @@ function Item() {
     (item) => item.id === id && item.type === itemType
   );
 
+  const plus = () => {
+    if (document.getElementById("quantityInput")) {
+      const value = document.getElementById("quantityInput").value;
+      document.getElementById("quantityInput").value = parseInt(value) + 1;
+    }
+  };
+
+  const minus = () => {
+    if (document.getElementById("quantityInput")) {
+      const value = document.getElementById("quantityInput").value;
+      if (parseInt(value) - 1 > 0) {
+        document.getElementById("quantityInput").value = parseInt(value) - 1;
+      }
+    }
+  };
+
   const capitalize = (s) => {
     if (typeof s !== "string") return "";
     return s.charAt(0).toUpperCase() + s.slice(1);
   };
 
   const addToCartDispatch = (i) => {
-    const qauntity = document.getElementById("quantity").value;
+    const qauntity = document.getElementById("quantityInput").value;
     const isDuplicate = store.cart.find((c) => c.item.id === i.id);
 
     if (!isDuplicate && qauntity >= 1) {
@@ -77,7 +93,20 @@ function Item() {
           <div className="mt-5">
             <label>
               <p>Quantity:</p>
-              <input type="number" id="quantity" name="quantity" />
+              <div className="quantity-input">
+                <button className="minus" onClick={minus}>
+                  -
+                </button>
+                <input
+                  id="quantityInput"
+                  type="text"
+                  value="1"
+                  onChange={() => {}}
+                />
+                <button className="plus" onClick={plus}>
+                  +
+                </button>
+              </div>
             </label>
             <input
               className="mt-3 add-to-cart-btn btn btn-dark"

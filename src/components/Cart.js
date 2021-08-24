@@ -10,6 +10,22 @@ function Cart() {
     return dim ? `${parseInt(dim.replace("px", "")) * 0.6}px` : "132px";
   };
 
+  const plus = (id) => {
+    if (document.getElementById(id)) {
+      const value = document.getElementById(id).value;
+      document.getElementById(id).value = parseInt(value) + 1;
+    }
+  };
+
+  const minus = (id) => {
+    if (document.getElementById(id)) {
+      const value = document.getElementById(id).value;
+      if (parseInt(value) - 1 > 0) {
+        document.getElementById(id).value = parseInt(value) - 1;
+      }
+    }
+  };
+
   return (
     <div>
       <h3 className="mt-5 ms-4 mb-3">My Cart</h3>
@@ -34,6 +50,27 @@ function Cart() {
             <div className="cart-right pt-4">
               <h5>{c.item.name}</h5>
               <p>{c.item.price}</p>
+
+              <div className="quantity-input">
+                <button
+                  className="minus"
+                  onClick={() => minus(`quantityInput${i}`)}
+                >
+                  -
+                </button>
+                <input
+                  id={`quantityInput${i}`}
+                  type="text"
+                  value={c.quantity || 1}
+                  onChange={() => {}}
+                />
+                <button
+                  className="plus"
+                  onClick={() => plus(`quantityInput${i}`)}
+                >
+                  +
+                </button>
+              </div>
             </div>
           </div>
         ))}
