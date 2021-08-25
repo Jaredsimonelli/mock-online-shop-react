@@ -253,6 +253,16 @@ input {
   vertical-align: middle;
 }
 
+.checkout-review-container {
+  border: 2px solid black;
+  border-radius: 4px;
+  height: 150px;
+}
+
+.et-font {
+  font-weight: 700;
+}
+
 @media (min-width: 728px) {
   .grid .box-wrapper {
     width: 50%;

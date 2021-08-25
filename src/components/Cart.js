@@ -77,8 +77,19 @@ function Cart() {
       </div>
 
       <div className="mx-4 ">
+        <div className="mt-4 checkout-review-container">
+          <p className="pt-3 px-4">
+            <span className="me-4">Item Subtotal:</span> <span>$100</span>
+          </p>
+          <p className="px-4">
+            <span className="me-4">Estimated Shipping:</span> <span>$10</span>
+          </p>
+          <p className="px-4 et-font">
+            <span className="me-4 ">Estimated Total:</span> <span>$110</span>
+          </p>
+        </div>
         <button
-          className="mt-3 checkout-btn btn btn-dark"
+          className="mt-4 checkout-btn btn btn-dark"
           type="btn"
           value="Checkout"
         >
