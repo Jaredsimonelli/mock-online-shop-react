@@ -194,7 +194,6 @@ a {
 
 .cart-left {
   min-height: 200px;
-  float: left;
   width: 30%;
 }
 
@@ -261,6 +260,17 @@ input {
 
 .et-font {
   font-weight: 700;
+}
+
+.cart-utils .btn-link {
+  text-decoration: none !important;
+  color: darkgrey !important;
+  padding-left: 0;
+  padding-right: 25px;
+}
+
+.cart-utils .btn-link:hover {
+  color: grey !important;
 }
 
 @media (min-width: 728px) {

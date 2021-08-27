@@ -29,16 +29,18 @@ function Cart() {
   return (
     <div>
       <h3 className="mt-5 ms-4 mb-3">My Cart</h3>
-      <div className="mx-4">
+      <div className="mx-4 container">
         {cartItems.map((c, i) => (
           <div
-            className={`cart-container ${i === 0 ? "border-tb" : "border-b"}`}
+            className={`row cart-container ${
+              i === 0 ? "border-tb" : "border-b"
+            }`}
             key={`${c.item.name} + ${c.item.color}`}
           >
-            <div className="cart-left">
+            <div className="cart-left col-2">
               <div className="cart-img-box">
                 <img
-                  className={`icon ${c.item.color}`}
+                  className={`icon ${c.item.color} img-responsive`}
                   src={getIcon(c.item.icon)}
                   alt={c.item.name}
                   width={dimensionConversion(c.item.gridSize[1])}
@@ -47,7 +49,7 @@ function Cart() {
               </div>
             </div>
 
-            <div className="cart-right pt-4">
+            <div className="cart-right pt-4 col-10">
               <h5>{c.item.name}</h5>
               <p>{c.item.price}</p>
 
@@ -69,6 +71,15 @@ function Cart() {
                   onClick={() => plus(`quantityInput${i}`)}
                 >
                   +
+                </button>
+              </div>
+
+              <div className="cart-utils">
+                <button type="button" className="btn btn-link">
+                  Remove
+                </button>
+                <button type="button" className="btn btn-link">
+                  Edit
                 </button>
               </div>
             </div>
