@@ -26,7 +26,6 @@ function Cart() {
     }
   };
 
-  // this is a test
   return (
     <div>
       <h3 className="mt-5 ms-4 mb-3">My Cart</h3>
