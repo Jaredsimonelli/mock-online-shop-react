@@ -75,6 +75,7 @@ function Cart() {
               </div>
 
               <div className="cart-utils">
+                {/* THIS NEEDS UPDATING */}
                 <button type="button" className="btn btn-link">
                   Remove
                 </button>
