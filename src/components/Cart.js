@@ -1,19 +1,23 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { getIcon } from "../helpers/getIcon";
+import { updateCart } from "../redux/actions";
 
 function Cart() {
   const store = useSelector((state) => state.store);
+  const dispatch = useDispatch();
+
   const cartItems = store.cart;
 
   const dimensionConversion = (dim) => {
     return dim ? `${parseInt(dim.replace("px", "")) * 0.6}px` : "132px";
   };
 
-  const plus = (id) => {
+  const plus = (id, item) => {
     if (document.getElementById(id)) {
       const value = document.getElementById(id).value;
       document.getElementById(id).value = parseInt(value) + 1;
+      dispatch(updateCart(item, parseInt(value) + 1));
     }
   };
 
@@ -24,6 +28,14 @@ function Cart() {
         document.getElementById(id).value = parseInt(value) - 1;
       }
     }
+  };
+
+  const remove = (id) => {
+    console.log(id);
+  };
+
+  const edit = (item) => {
+    console.log(item);
   };
 
   return (
@@ -68,7 +80,7 @@ function Cart() {
                 />
                 <button
                   className="plus"
-                  onClick={() => plus(`quantityInput${i}`)}
+                  onClick={() => plus(`quantityInput${i}`, c.item)}
                 >
                   +
                 </button>
@@ -76,10 +88,18 @@ function Cart() {
 
               <div className="cart-utils">
                 {/* THIS NEEDS UPDATING */}
-                <button type="button" className="btn btn-link">
+                <button
+                  type="button"
+                  className="btn btn-link"
+                  onClick={() => remove(c.item.id)}
+                >
                   Remove
                 </button>
-                <button type="button" className="btn btn-link">
+                <button
+                  type="button"
+                  className="btn btn-link"
+                  onClick={() => edit(c.item)}
+                >
                   Edit
                 </button>
               </div>

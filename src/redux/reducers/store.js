@@ -58,8 +58,11 @@ const storeReducer = (state = initialState, action) => {
     case "UPDATE CART":
       return {
         ...state,
-        cart: state.cart.filter((c) => {
+        cart: state.cart.every((c) => {
           if (c.item.id === action.payload.item.id) {
+            // TODO: update not working
+            console.log(c.item);
+            console.log(action.payload);
             c.quantity = action.payload.quantity;
           }
         }),
