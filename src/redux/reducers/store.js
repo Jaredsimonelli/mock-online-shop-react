@@ -25,7 +25,11 @@ const initialState = {
     },
   ],
   addToCartMsg: { type: "warn", msg: "" },
-  cartQuantity: 1,
+  cartQuantity: 2,
+  reviewData: {
+    subtotal: 0,
+    total: 0,
+  },
 };
 
 const storeReducer = (state = initialState, action) => {
@@ -44,6 +48,17 @@ const storeReducer = (state = initialState, action) => {
           parseInt(state.cartQuantity) + parseInt(action.payload.quantity),
           10
         ),
+        reviewData: {
+          subtotal:
+            state.reviewData.subtotal +
+            currencyToNumber(action.payload.item.price) *
+              parseInt(action.payload.quantity),
+          total:
+            state.reviewData.subtotal +
+            currencyToNumber(action.payload.item.price) *
+              parseInt(action.payload.quantity) +
+            5,
+        },
       };
     case "CART MESSAGE UPDATE":
       return {
@@ -113,6 +128,10 @@ const updateCart = (cart, item, quantity) => {
   });
 
   return cart;
+};
+
+const currencyToNumber = (currency) => {
+  return Number(currency.replace(/[^0-9.-]+/g, ""));
 };
 
 export default storeReducer;
