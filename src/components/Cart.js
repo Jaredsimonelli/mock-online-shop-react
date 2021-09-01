@@ -21,17 +21,18 @@ function Cart() {
     }
   };
 
-  const minus = (id) => {
+  const minus = (id, item) => {
     if (document.getElementById(id)) {
       const value = document.getElementById(id).value;
       if (parseInt(value) - 1 > 0) {
         document.getElementById(id).value = parseInt(value) - 1;
+        dispatch(updateCart(item, parseInt(value) - 1));
       }
     }
   };
 
-  const remove = (id) => {
-    console.log(id);
+  const remove = (item) => {
+    dispatch(updateCart(item));
   };
 
   const edit = (item) => {
@@ -68,7 +69,7 @@ function Cart() {
               <div className="quantity-input">
                 <button
                   className="minus"
-                  onClick={() => minus(`quantityInput${i}`)}
+                  onClick={() => minus(`quantityInput${i}`, c.item)}
                 >
                   -
                 </button>
@@ -87,11 +88,10 @@ function Cart() {
               </div>
 
               <div className="cart-utils">
-                {/* THIS NEEDS UPDATING */}
                 <button
                   type="button"
                   className="btn btn-link"
-                  onClick={() => remove(c.item.id)}
+                  onClick={() => remove(c.item)}
                 >
                   Remove
                 </button>

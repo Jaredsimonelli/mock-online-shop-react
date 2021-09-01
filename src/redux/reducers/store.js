@@ -58,14 +58,12 @@ const storeReducer = (state = initialState, action) => {
     case "UPDATE CART":
       return {
         ...state,
-        cart: state.cart.every((c) => {
-          if (c.item.id === action.payload.item.id) {
-            // TODO: update not working
-            console.log(c.item);
-            console.log(action.payload);
-            c.quantity = action.payload.quantity;
-          }
-        }),
+        cart: updateCart(
+          state.cart,
+          action.payload.item,
+          action.payload.quantity
+        ),
+        cartQuantity: getCartQuantity(state.cart),
       };
     case "REMOVE FROM CART":
       return {
@@ -95,6 +93,26 @@ const storeReducer = (state = initialState, action) => {
     default:
       return state;
   }
+};
+
+const getCartQuantity = (cart) => {
+  let quantity = 0;
+
+  cart.every((c) => {
+    quantity = quantity + c.quantity;
+  });
+
+  return quantity;
+};
+
+const updateCart = (cart, item, quantity) => {
+  cart.forEach((c, i) => {
+    if (c.item.id === item.id) {
+      cart[i].quantity = quantity;
+    }
+  });
+
+  return cart;
 };
 
 export default storeReducer;

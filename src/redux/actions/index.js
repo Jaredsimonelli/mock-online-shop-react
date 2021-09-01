@@ -12,16 +12,10 @@ export const addToCart = (item, quantity) => {
   };
 };
 
-export const cartMsgUpdate = (type, msg) => {
+export const removeFromCart = (item) => {
   return {
-    type: "CART MESSAGE UPDATE",
-    payload: { type, msg },
-  };
-};
-
-export const resetMsg = () => {
-  return {
-    type: "RESET MESSAGE",
+    type: "REMOVE FROM CART",
+    payload: item,
   };
 };
 
@@ -32,10 +26,16 @@ export const updateCart = (item, quantity) => {
   };
 };
 
-export const removeFromCart = (item) => {
+export const cartMsgUpdate = (type, msg) => {
   return {
-    type: "REMOVE FROM CART",
-    payload: item,
+    type: "CART MESSAGE UPDATE",
+    payload: { type, msg },
+  };
+};
+
+export const resetMsg = () => {
+  return {
+    type: "RESET MESSAGE",
   };
 };
 
