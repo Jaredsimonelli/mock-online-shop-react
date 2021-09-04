@@ -42,7 +42,7 @@ function Cart() {
   return (
     <div>
       <h3 className="mt-5 ms-4 mb-3">My Cart</h3>
-      <div className="mx-4 container">
+      <div className="mx-4">
         {cartItems.map((c, i) => (
           <div
             className={`row cart-container ${
@@ -50,7 +50,7 @@ function Cart() {
             }`}
             key={`${c.item.name} + ${c.item.color}`}
           >
-            <div className="cart-left col-2">
+            <div className="cart-left col p-0">
               <div className="cart-img-box">
                 <img
                   className={`icon ${c.item.color} img-responsive`}
@@ -62,7 +62,7 @@ function Cart() {
               </div>
             </div>
 
-            <div className="cart-right pt-4 col-10">
+            <div className="cart-right pt-4 col">
               <h5>{c.item.name}</h5>
               <p>{c.item.price}</p>
 
@@ -108,7 +108,7 @@ function Cart() {
         ))}
       </div>
 
-      <div className="mx-4 ">
+      <div className="mx-2">
         <div className="mt-4 checkout-review-container">
           <p className="pt-3 px-4">
             <span className="me-4">Item Subtotal:</span> <span>$100</span>

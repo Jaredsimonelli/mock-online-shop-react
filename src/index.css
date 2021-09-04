@@ -194,7 +194,8 @@ a {
 
 .cart-left {
   min-height: 200px;
-  width: 30%;
+  width: auto !important;
+  flex: inherit !important;
 }
 
 .cart-right {
