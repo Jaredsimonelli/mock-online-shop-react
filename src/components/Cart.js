@@ -36,7 +36,7 @@ function Cart() {
   };
 
   const edit = (item) => {
-    console.log(item);
+    // dispatch(updateCart(item));
   };
 
   return (
