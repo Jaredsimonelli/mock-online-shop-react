@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getIcon } from "../helpers/getIcon";
-import { updateCart } from "../redux/actions";
+import { updateCart, removeFromCart } from "../redux/actions";
 
 function Cart() {
   const store = useSelector((state) => state.store);
@@ -32,7 +32,12 @@ function Cart() {
   };
 
   const remove = (item) => {
-    dispatch(updateCart(item));
+    dispatch(
+      removeFromCart(
+        item,
+        cartItems.find((i) => i.item.id === item.id)?.quantity
+      )
+    );
   };
 
   const edit = (item) => {
@@ -43,6 +48,13 @@ function Cart() {
     <div>
       <h3 className="mt-5 ms-4 mb-3">My Cart</h3>
       <div className="mx-4">
+        {cartItems.length === 0 && (
+          <div className="row cart-container border-tb">
+            <h5 className="text-center empty-cart-msg">
+              <i>NO ITEMS IN YOUR CART</i>
+            </h5>
+          </div>
+        )}
         {cartItems.map((c, i) => (
           <div
             className={`row cart-container ${

@@ -84,6 +84,7 @@ const storeReducer = (state = initialState, action) => {
       return {
         ...state,
         cart: state.cart.filter((c) => c.item.id !== action.payload.item.id),
+        cartQuantity: state.cartQuantity - action.payload.quantity,
       };
     case "GET ALL ITEMS":
       return {

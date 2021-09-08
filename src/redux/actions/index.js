@@ -12,10 +12,10 @@ export const addToCart = (item, quantity) => {
   };
 };
 
-export const removeFromCart = (item) => {
+export const removeFromCart = (item, quantity) => {
   return {
     type: "REMOVE FROM CART",
-    payload: item,
+    payload: { item, quantity },
   };
 };
 

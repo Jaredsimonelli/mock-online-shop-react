@@ -274,6 +274,12 @@ input {
   color: grey !important;
 }
 
+.empty-cart-msg {
+  margin-top: auto;
+  margin-bottom: auto;
+  color: darkgrey;
+}
+
 @media (min-width: 728px) {
   .grid .box-wrapper {
     width: 50%;
