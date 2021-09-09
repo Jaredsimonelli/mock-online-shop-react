@@ -40,9 +40,9 @@ function Cart() {
     );
   };
 
-  const edit = (item) => {
-    // dispatch(updateCart(item));
-  };
+  //   const edit = (item) => {
+  //     // dispatch(updateCart(item));
+  //   };
 
   return (
     <div>
@@ -107,13 +107,13 @@ function Cart() {
                 >
                   Remove
                 </button>
-                <button
+                {/* <button
                   type="button"
                   className="btn btn-link"
                   onClick={() => edit(c.item)}
                 >
                   Edit
-                </button>
+                </button> */}
               </div>
             </div>
           </div>
