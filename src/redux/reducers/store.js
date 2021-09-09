@@ -27,8 +27,8 @@ const initialState = {
   addToCartMsg: { type: "warn", msg: "" },
   cartQuantity: 2,
   reviewData: {
-    subtotal: 0,
-    total: 0,
+    subtotal: 4,
+    total: 9,
   },
 };
 
@@ -79,12 +79,34 @@ const storeReducer = (state = initialState, action) => {
           action.payload.quantity
         ),
         cartQuantity: getCartQuantity(state.cart),
+        reviewData: {
+          subtotal: getSubtotal(
+            updateCart(state.cart, action.payload.item, action.payload.quantity)
+          ),
+          total:
+            getSubtotal(
+              updateCart(
+                state.cart,
+                action.payload.item,
+                action.payload.quantity
+              )
+            ) + 5,
+        },
       };
     case "REMOVE FROM CART":
       return {
         ...state,
         cart: state.cart.filter((c) => c.item.id !== action.payload.item.id),
         cartQuantity: state.cartQuantity - action.payload.quantity,
+        reviewData: {
+          subtotal: getSubtotal(
+            state.cart.filter((c) => c.item.id !== action.payload.item.id)
+          ),
+          total:
+            getSubtotal(
+              state.cart.filter((c) => c.item.id !== action.payload.item.id)
+            ) + 5,
+        },
       };
     case "GET ALL ITEMS":
       return {
@@ -129,6 +151,14 @@ const updateCart = (cart, item, quantity) => {
   });
 
   return cart;
+};
+
+const getSubtotal = (cart) => {
+  let subtotal = 0;
+  cart.forEach((c) => {
+    subtotal = subtotal + currencyToNumber(c.item.price) * parseInt(c.quantity);
+  });
+  return subtotal;
 };
 
 const currencyToNumber = (currency) => {

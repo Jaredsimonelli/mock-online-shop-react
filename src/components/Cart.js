@@ -8,6 +8,7 @@ function Cart() {
   const dispatch = useDispatch();
 
   const cartItems = store.cart;
+  const reviewData = store.reviewData;
 
   const dimensionConversion = (dim) => {
     return dim ? `${parseInt(dim.replace("px", "")) * 0.6}px` : "132px";
@@ -39,10 +40,6 @@ function Cart() {
       )
     );
   };
-
-  //   const edit = (item) => {
-  //     // dispatch(updateCart(item));
-  //   };
 
   return (
     <div>
@@ -107,13 +104,6 @@ function Cart() {
                 >
                   Remove
                 </button>
-                {/* <button
-                  type="button"
-                  className="btn btn-link"
-                  onClick={() => edit(c.item)}
-                >
-                  Edit
-                </button> */}
               </div>
             </div>
           </div>
@@ -123,19 +113,22 @@ function Cart() {
       <div className="mx-2">
         <div className="mt-4 checkout-review-container">
           <p className="pt-3 px-4">
-            <span className="me-4">Item Subtotal:</span> <span>$100</span>
+            <span className="me-4">Item Subtotal:</span>{" "}
+            <span>{`$${reviewData.subtotal}`}</span>
           </p>
           <p className="px-4">
-            <span className="me-4">Estimated Shipping:</span> <span>$10</span>
+            <span className="me-4">Estimated Shipping:</span> <span>$5</span>
           </p>
           <p className="px-4 et-font">
-            <span className="me-4 ">Estimated Total:</span> <span>$110</span>
+            <span className="me-4 ">Estimated Total:</span>{" "}
+            <span>{`$${reviewData.total}`}</span>
           </p>
         </div>
         <button
           className="mt-4 checkout-btn btn btn-dark"
           type="btn"
           value="Checkout"
+          disabled={reviewData.subtotal === 0}
         >
           Checkout
         </button>

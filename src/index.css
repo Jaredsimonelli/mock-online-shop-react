@@ -275,7 +275,7 @@ input {
 }
 
 .empty-cart-msg {
-  margin-top: auto;
+  margin-top: auto !important;
   margin-bottom: auto;
   color: darkgrey;
 }
