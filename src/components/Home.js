@@ -10,7 +10,7 @@ function Home() {
 
       <div
         id="carouselExampleIndicators"
-        className="carousel slide"
+        className="carousel slide mx-5"
         data-bs-ride="carousel"
       >
         <div className="carousel-indicators">
@@ -37,13 +37,25 @@ function Home() {
         </div>
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <img src="..." className="d-block w-100" alt="..."></img>
+            <img
+              src={getIcon("indianajones")}
+              className="d-block w-100"
+              alt="..."
+            ></img>
           </div>
           <div className="carousel-item">
-            <img src="..." className="d-block w-100" alt="..."></img>
+            <img
+              src={getIcon("indianajones")}
+              className="d-block w-100"
+              alt="..."
+            ></img>
           </div>
           <div className="carousel-item">
-            <img src="..." className="d-block w-100" alt="..."></img>
+            <img
+              src={getIcon("indianajones")}
+              className="d-block w-100"
+              alt="..."
+            ></img>
           </div>
         </div>
         <button
