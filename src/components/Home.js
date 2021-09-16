@@ -38,22 +38,22 @@ function Home() {
         <div className="carousel-inner">
           <div className="carousel-item active">
             <img
-              src={getIcon("indianajones")}
-              className="d-block w-100"
+              src={getIcon("tshirt")}
+              className="d-block carousel-img white"
+              alt="..."
+            ></img>
+          </div>
+          <div className="carousel-item">
+            <img
+              src={getIcon("watch")}
+              className="d-block carousel-img white"
               alt="..."
             ></img>
           </div>
           <div className="carousel-item">
             <img
               src={getIcon("indianajones")}
-              className="d-block w-100"
-              alt="..."
-            ></img>
-          </div>
-          <div className="carousel-item">
-            <img
-              src={getIcon("indianajones")}
-              className="d-block w-100"
+              className="d-block carousel-img white"
               alt="..."
             ></img>
           </div>

@@ -82,7 +82,21 @@ a {
 }
 
 /* HOME Component */
+.carousel-img {
+  margin: auto;
+}
 
+.carouselExampleIndicators {
+  height: 350px;
+}
+
+.carousel-inner {
+  height: 350px;
+}
+
+.carousel-item {
+  height: 350px;
+}
 
 /* GRID Component */
 .box {
