@@ -3,6 +3,26 @@ import { getIcon } from "../helpers/getIcon";
 import "jquery/src/jquery";
 
 function Home() {
+  let activeIndex = 0;
+
+  const next = () => {
+    if (activeIndex + 1 <= 2) {
+      activeIndex++;
+    } else {
+      activeIndex = 0;
+    }
+    console.log(activeIndex);
+  };
+
+  const prev = () => {
+    if (activeIndex - 1 !== -1) {
+      activeIndex--;
+    } else {
+      activeIndex = 2;
+    }
+    console.log(activeIndex);
+  };
+
   return (
     <div>
       <h1 className="text-center mt-3">MOCK SHOP</h1>
@@ -16,44 +36,39 @@ function Home() {
         <div className="carousel-indicators">
           <button
             type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="0"
-            className="active"
-            aria-current="true"
-            aria-label="Slide 1"
+            className={`${activeIndex === 0 ? "active" : ""}`}
+            id="indicator0"
           ></button>
           <button
             type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="1"
-            aria-label="Slide 2"
+            className={`${activeIndex === 1 ? "active" : ""}`}
+            id="indicator1"
           ></button>
           <button
             type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="2"
-            aria-label="Slide 3"
+            className={`${activeIndex === 2 ? "active" : ""}`}
+            id="indicator2"
           ></button>
         </div>
         <div className="carousel-inner">
           <div className="carousel-item active">
             <img
               src={getIcon("tshirt")}
-              className="d-block carousel-img white"
+              className="d-block carousel-img white mt-3"
               alt="..."
             ></img>
           </div>
           <div className="carousel-item">
             <img
               src={getIcon("watch")}
-              className="d-block carousel-img white"
+              className="d-block carousel-img white mt-3"
               alt="..."
             ></img>
           </div>
           <div className="carousel-item">
             <img
               src={getIcon("indianajones")}
-              className="d-block carousel-img white"
+              className="d-block carousel-img white mt-3"
               alt="..."
             ></img>
           </div>
@@ -63,6 +78,8 @@ function Home() {
           type="button"
           data-bs-target="#carouselExampleIndicators"
           data-bs-slide="prev"
+          id="scroll_left"
+          onClick={() => prev()}
         >
           <span
             className="carousel-control-prev-icon"
@@ -75,6 +92,8 @@ function Home() {
           type="button"
           data-bs-target="#carouselExampleIndicators"
           data-bs-slide="next"
+          id="scroll_right"
+          onClick={() => next()}
         >
           <span
             className="carousel-control-next-icon"
