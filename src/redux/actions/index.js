@@ -62,3 +62,10 @@ export const getAccessories = () => {
     type: "GET ACCESSORIES",
   };
 };
+
+export const updateCarouselIndex = (index) => {
+  return {
+    type: "UPDATAE CAROUSEL INDEX",
+    payload: index,
+  };
+};

@@ -30,6 +30,7 @@ const initialState = {
     subtotal: 4,
     total: 9,
   },
+  carouselIndex: 0,
 };
 
 const storeReducer = (state = initialState, action) => {
@@ -127,6 +128,11 @@ const storeReducer = (state = initialState, action) => {
       return {
         ...state,
         accessories: accessoriesList,
+      };
+    case "UPDATAE CAROUSEL INDEX":
+      return {
+        ...state,
+        carouselIndex: action.index,
       };
     default:
       return state;

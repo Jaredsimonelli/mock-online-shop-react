@@ -1,8 +1,13 @@
 import React from "react";
 import { getIcon } from "../helpers/getIcon";
-import "jquery/src/jquery";
+import { useSelector, useDispatch } from "react-redux";
+import { updateCarouselIndex } from "../redux/actions";
 
 function Home() {
+  const store = useSelector((state) => state.store);
+  const dispatch = useDispatch();
+
+  const carouselIndex = store.carouselIndex;
   let activeIndex = 0;
 
   const next = () => {
@@ -12,6 +17,7 @@ function Home() {
       activeIndex = 0;
     }
     console.log(activeIndex);
+    dispatch(updateCarouselIndex(activeIndex));
   };
 
   const prev = () => {
@@ -21,6 +27,7 @@ function Home() {
       activeIndex = 2;
     }
     console.log(activeIndex);
+    dispatch(updateCarouselIndex(activeIndex));
   };
 
   return (
