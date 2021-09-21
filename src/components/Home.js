@@ -8,7 +8,7 @@ function Home() {
   const dispatch = useDispatch();
 
   const carouselIndex = store.carouselIndex;
-  let activeIndex = 0;
+  let activeIndex = carouselIndex;
 
   const next = () => {
     if (activeIndex + 1 <= 2) {
@@ -16,7 +16,6 @@ function Home() {
     } else {
       activeIndex = 0;
     }
-    console.log(activeIndex);
     dispatch(updateCarouselIndex(activeIndex));
   };
 
@@ -26,7 +25,6 @@ function Home() {
     } else {
       activeIndex = 2;
     }
-    console.log(activeIndex);
     dispatch(updateCarouselIndex(activeIndex));
   };
 
@@ -41,21 +39,24 @@ function Home() {
         data-bs-ride="carousel"
       >
         <div className="carousel-indicators">
-          <button
-            type="button"
-            className={`${activeIndex === 0 ? "active" : ""}`}
+          <div
+            className={`indicator mx-1 ${
+              carouselIndex === 0 ? "indicator-active" : ""
+            }`}
             id="indicator0"
-          ></button>
-          <button
-            type="button"
-            className={`${activeIndex === 1 ? "active" : ""}`}
+          ></div>
+          <div
+            className={`indicator mx-1 ${
+              carouselIndex === 1 ? "indicator-active" : ""
+            }`}
             id="indicator1"
-          ></button>
-          <button
-            type="button"
-            className={`${activeIndex === 2 ? "active" : ""}`}
+          ></div>
+          <div
+            className={`indicator mx-1 ${
+              carouselIndex === 2 ? "indicator-active" : ""
+            }`}
             id="indicator2"
-          ></button>
+          ></div>
         </div>
         <div className="carousel-inner">
           <div className="carousel-item active">

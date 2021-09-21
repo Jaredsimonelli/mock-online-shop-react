@@ -132,7 +132,7 @@ const storeReducer = (state = initialState, action) => {
     case "UPDATAE CAROUSEL INDEX":
       return {
         ...state,
-        carouselIndex: action.index,
+        carouselIndex: action.payload,
       };
     default:
       return state;

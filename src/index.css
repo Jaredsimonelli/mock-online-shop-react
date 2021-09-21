@@ -98,6 +98,16 @@ a {
   height: 350px;
 }
 
+.indicator {
+  width: 18px;
+  height: 5px;
+  background-color: white;
+}
+
+.indicator-active {
+  background-color: dimgrey;
+}
+
 /* GRID Component */
 .box {
   text-align: center;
