@@ -65,6 +65,7 @@ function Home() {
               className="d-block carousel-img white mt-3"
               alt="..."
             ></img>
+            <div class="mt-3 purp-text text-center">SHWIFTY SHIRTS * WOW *</div>
           </div>
           <div className="carousel-item">
             <img
@@ -72,6 +73,7 @@ function Home() {
               className="d-block carousel-img white mt-3"
               alt="..."
             ></img>
+            <div class="mt-3 purp-text text-center">WACKY WATCHES * OHHH *</div>
           </div>
           <div className="carousel-item">
             <img
@@ -79,6 +81,7 @@ function Home() {
               className="d-block carousel-img white mt-3"
               alt="..."
             ></img>
+            <div class="mt-3 purp-text text-center">HATS...</div>
           </div>
         </div>
         <button

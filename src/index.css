@@ -87,15 +87,15 @@ a {
 }
 
 .carouselExampleIndicators {
-  height: 350px;
+  height: 400px;
 }
 
 .carousel-inner {
-  height: 350px;
+  height: 400px;
 }
 
 .carousel-item {
-  height: 350px;
+  height: 400px;
 }
 
 .indicator {
@@ -106,6 +106,10 @@ a {
 
 .indicator-active {
   background-color: dimgrey;
+}
+
+.purp-text {
+  color: #7f95d1;
 }
 
 /* GRID Component */
