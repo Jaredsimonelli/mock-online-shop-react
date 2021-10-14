@@ -59,7 +59,9 @@ function Home() {
           ></div>
         </div>
         <div className="carousel-inner">
-          <div className="carousel-item active">
+          <div
+            className={`carousel-item ${carouselIndex === 0 ? "active" : ""}`}
+          >
             <img
               src={getIcon("tshirt")}
               className="d-block carousel-img white mt-3"
@@ -67,7 +69,9 @@ function Home() {
             ></img>
             <div class="mt-3 purp-text text-center">SHWIFTY SHIRTS * WOW *</div>
           </div>
-          <div className="carousel-item">
+          <div
+            className={`carousel-item ${carouselIndex === 1 ? "active" : ""}`}
+          >
             <img
               src={getIcon("watch")}
               className="d-block carousel-img white mt-3"
@@ -75,7 +79,9 @@ function Home() {
             ></img>
             <div class="mt-3 purp-text text-center">WACKY WATCHES * OHHH *</div>
           </div>
-          <div className="carousel-item">
+          <div
+            className={`carousel-item ${carouselIndex === 2 ? "active" : ""}`}
+          >
             <img
               src={getIcon("indianajones")}
               className="d-block carousel-img white mt-3"
